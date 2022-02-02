@@ -4,8 +4,6 @@
  * Grupo 2
  * Integrantes del grupo:
  * Sofía Lam 21548
- * Dáriel Villatoro
- * Seongujun An 
  * Defines all the methods that a Calculator should have
  */
 public interface Calculator {

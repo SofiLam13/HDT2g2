@@ -5,8 +5,6 @@
  * Grupo 2
  * Integrantes del grupo:
  * Sofía Lam 21548
- * Dáriel Villatoro
- * Seongujun An 
  *  Se crea la interfaz del stack
  */
 public interface Stack<E> {

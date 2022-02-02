@@ -4,22 +4,16 @@
  * Grupo 2
  * Integrantes del grupo:
  * Sofía Lam 21548
- * Dáriel Villatoro
- * Seongujun An 
  */
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Maingrupo2{
-    
-    public static void main(String args[]) { 
-
-    }   
+  
     class FileReader{
-        
+        ArrayList<String> expresion= new ArrayList<String>();
         public ArrayList<String> archivo(){
-            ArrayList<String> expresion= new ArrayList<String>();
             try{
                 String nombre= "datos.txt";
                 File myFile = new File(nombre);
@@ -38,5 +32,23 @@ public class Maingrupo2{
             return expresion;
         }
     }
+    public static void main(String args[]) { 
+        System.out.println("Bienvenido a la Calculadora PostFix");
+        System.out.println("----------------------------------------");
+        System.out.println("Para empezar a realizar tus calculos, ");
+        System.out.println("Por favor ingresa tu operación deseada al archivo datos.txt");
+        System.out.println("");
+        System.out.println("En tu archivo datos.txt se encuentran las siguientes operaciones:");
+       // FileReader a= new FileReader();
+       // a.archivo();
+       // ArrayList<String>m=a.expresion;
+        //for(int i=0; i<m.size(); i++){
+       //     string s= expresion.get(i)
+        //    System.out.println(s)
+       // }
+        
+    } 
+   
     
 }
+
