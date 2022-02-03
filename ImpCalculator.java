@@ -1,38 +1,62 @@
+/**
+ * Universidad del Valle de Guatemala 
+ * Hoja de Trabajo 2
+ * Grupo 2
+ * Integrantes del grupo:
+ * Sofía Lam 21548
+ * Dariel Villatoro 20776
+ * Se crea la clase encargada de la calculadora, que implementa la interfaz Calculator
+ */
+
 public class ImpCalculator implements Calculator {
 
-    ImpStack<Integer> pila = new ImpStack<Integer>();
+    //Se crea el stack para manejar las operaciones
+    Stack<Integer> pila = new ImpStack<Integer>();
 
     @Override
     public double calculate(String operation) {
-        // TODO Auto-generated method stub
-        char[] array = operation.toCharArray();
+        String[] array = operation.split(" ");
+        if (array.length < 2) {
+            System.out.println("Error, no hay suficientes argumentos.");
+            System.exit(0);
+        }
         for (int i = 0; i < array.length; i++) {
             switch (array[i]) {
-                case '+':
+                case "+":
                     suma();
                     break;
                 
-                case '-':
+                case "-":
                     resta();
                     break;
 
-                case '*':
+                case "*":
                     multiplicacion();
                     break;
 
-                case '/':
+                case "/":
                     division();
                     break;
 
                 default:
-                    int val = (int) array[i];
-                    pila.add(val);
-                    break;
+                    try {
+                        int val = Integer.parseInt(array[i]);
+                        pila.add(val);
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error: No se ha recivido un numero");
+                        System.exit(0);
+                    }
+                    
             }
         }
         return pila.remove();
     }
 
+    /**
+     * Los siguentes metodos realizan las operaciones basicas tomando
+     * los ultimos elemento que hayan entrado al stack
+     */
     private void suma (){
         int a = pila.remove();
         int b = pila.remove();
@@ -54,6 +78,10 @@ public class ImpCalculator implements Calculator {
     private void division (){
         int a = pila.remove();
         int b = pila.remove();
+        if (b == 0) {
+            System.out.println("Error: Divisio por cero.");
+            System.exit(0);
+        }
         pila.add(a / b);
     }
 
